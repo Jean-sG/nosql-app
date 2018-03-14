@@ -1,0 +1,29 @@
+{
+  "name": "nosql-app",
+  "version": "1.0.0",
+  "description": "App for the nosql Esilv course",
+  "main": "index.js",
+  "dependencies": {
+    "elasticsearch": "^14.2.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jean-sG/nosql-app.git"
+  },
+  "keywords": [
+    "elasticsearch",
+    "nosql",
+    "esilv"
+  ],
+  "author": "Jean GUILLAUME / Paul Lerner / Lucile Jeanneret",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Jean-sG/nosql-app/issues"
+  },
+  "homepage": "https://github.com/Jean-sG/nosql-app#readme"
+}
