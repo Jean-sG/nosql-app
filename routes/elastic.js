@@ -3,20 +3,31 @@ var client = new elasticsearch.Client({
   host: 'localhost:9200',
   log: 'trace'
 });
-client.ping({
-  // ping usually has a 3000ms timeout
-  requestTimeout: 3000
-}, function (error) {
-  if (error) {
-    console.trace('elasticsearch cluster is down!');
-  } else {
-    console.log('All is well');
-  }
-});
+
+//pour la barre de recherche, juste faire varier george clooney pour rechercher partout
 client.search({
-  q: 'pants'
+  index: 'movies',
+  type: 'movie',
+  q: 'George Clooney'
 }).then(function (body) {
   var hits = body.hits.hits;
 }, function (error) {
   console.trace(error.message);
 });
+/*
+//POUR LE formulaire, faire varier fields.title et star wars
+client.search({
+  index: 'movies',
+  type: 'movie',
+  body: {
+        query: {
+            match: {
+                "fields.title": 'Star Wars'
+            }
+        }
+    }
+}).then(function (body) {
+  var hits = body.hits.hits;
+}, function (error) {
+  console.trace(error.message);
+});*/
