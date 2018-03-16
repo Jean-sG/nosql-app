@@ -10,7 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "test": "npm run test"
   },
   "repository": {
     "type": "git",
