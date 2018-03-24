@@ -13,26 +13,34 @@ client.search({
   console.trace(error.message);
 });*/
 
-var input ="George Clooney";
+
+//var input ="George Clooney";
 //pour la barre de recherche, juste faire varier george clooney pour rechercher partout
+
+function Search_Query(input){
 client.search({
   index: 'movies',
   type: 'movie',
   q: input
 }).then(function (body) {
-  var hits = body.hits.hits;
-}, function (error) {
-  console.trace(error.message);
-});
-/*
+      var hits = body.hits.hits;
+    }, function (error) {
+      console.trace(error.message);
+    });
+}
+
+
+
 //POUR LE formulaire, faire varier fields.title et star wars
+
+function Search_Form (title){
 client.search({
   index: 'movies',
   type: 'movie',
   body: {
         query: {
             match: {
-                "fields.title": 'Star Wars'
+                "fields.title": title
             }
         }
     }
@@ -40,4 +48,7 @@ client.search({
   var hits = body.hits.hits;
 }, function (error) {
   console.trace(error.message);
-});*/
+});
+}
+
+Search_Form('Star Wars');
