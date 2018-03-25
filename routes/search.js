@@ -1,4 +1,6 @@
 var client = require('./connection.js');
+module.exports = function (args) { }
+ 
 
 /*
 //pour la requete en dur, l'utilisateur rentrera sa requete sous forme de texte en format json
@@ -14,33 +16,27 @@ client.search({
 });*/
 
 
-//var input ="George Clooney";
-//pour la barre de recherche, juste faire varier george clooney pour rechercher partout
 
-function Search_Query(input){
+var search = {
+  Search_Movie: function(clientReq){
 client.search({
   index: 'movies',
   type: 'movie',
-  q: input
+  q: clientReq
 }).then(function (body) {
       var hits = body.hits.hits;
     }, function (error) {
       console.trace(error.message);
     });
-}
-
-
-
-//POUR LE formulaire, faire varier fields.title et star wars
-
-function Search_Form (title){
+  },
+    Search_WithForm: function (clientReq){
 client.search({
   index: 'movies',
   type: 'movie',
   body: {
         query: {
             match: {
-                "fields.title": title
+            clientReq
             }
         }
     }
@@ -49,6 +45,25 @@ client.search({
 }, function (error) {
   console.trace(error.message);
 });
+},
+    Search_WithJSON : function (clientReq){
+client.search({
+  index: 'movies',
+  type: 'movie',
+  body: {
+       clientReq
+    }
+}).then(function (body) {
+  var hits = body.hits.hits;
+}, function (error) {
+  console.trace(error.message);
+});
 }
 
-Search_Form('Star Wars');
+}
+module.exports = search;
+
+
+
+
+

@@ -1,17 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Search movies</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
-  <body>
-<div class="panel">
-  <div class="panel-header">
-    <input id="search" class="search-box" type="text" placeholder="Search a movie">
-    <label class="search-label" for="search"></label>
-  </div>
-  <div class="panel-body"></div>
-</div>
-  </body>
+
+<head>
+  <title>Movies BDD</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!--BOOTSTRAP -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	   <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+            <li><a href="#form1">SEARCH</a></li>
+            <li><a href="#form2">SEARCH WITH FORM</a></li>
+            <li><a href=#form3>SEARCH WITH JSON</a></li>
+        </ul>
+      </div>
+	
+
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1> Best Movie Rank</h1>
+        </div>
+      </div>
+
+    </div>
+    <div id="site_content">
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1> Search a Movie  </h1>
+		  <div class="acceuil">
+              <div id="form1">
+          <div class="panel">
+              <form action="search" class="form-signin" method="get">
+              <div class="panel-header">
+                <input id="searchmovie" class="search-box" type="text" placeholder="Search a movie" required>
+                <label class="search-label" for="search"></label>
+              </div>
+              </form>
+              <div class="panel-body"></div>
+            </div>
+          </div>
+          </div>
+          
+      <div class="acceuil">
+          
+    
+	 <div class="form-row">
+		<div id="form2">
+            <form action="search_with_form" class="form-signin" method="post">
+			<div class="form-group col-md-4">
+				<label for="inputTitle">Title</label>
+				 <input class="name" type="text" placeholder="Input a movie title"/>
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="inputDirector">Director </label>
+				 <input class="name" type="text" placeholder="Input a director name"/>
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="inputGenre">Genre </label>
+				 <input class="price-by-cubic" type="text" placeholder="Input a genre"/>
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="inputYear"> Released Year </label>
+				<input class="name" type="number" placeholder="Year"/>
+			</div>
+
+
+			<div class="form-group col-md-4">
+				<label for="inputRank"> Rank </label>
+				<input class="name" type="number" placeholder="Rank"/>
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="inputRate">Rate </label>
+				<input class="name" type="number" placeholder="rate"/>
+			</div>
+			
+		 <button type="submit" class="btn btn-secondary btn-lg" id="compute">SEARCH</button>
+            </form>
+		
+		  </div>
+         </div>
+        </div>
+           <!-- end of FORM 2 div --> 
+             <div class="acceuil">
+                 <div id="form3">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <textarea class="form-control" id="json" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-secondary btn-lg" id="compute">SEARCH</button>
+             </div>
+            </div>
+		  <div id="block2">
+		<div id="result"></div>
+		 </div>
+		</div>
+      </div>
+    
+      <div id="footer">
+    </div>
+    </div>
+</body>
 </html>

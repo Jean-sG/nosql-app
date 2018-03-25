@@ -10,7 +10,9 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+      "concurrently": "^3.5.0"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "npm run test"
