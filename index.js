@@ -1,44 +1,40 @@
 var express = require('express')
 var router = express.Router();
-var crypto = require('crypto');
 var app = express()
 const search = require('./routes/search.js');
+var bodyParser = require('body-parser')
+// create application/json parser
+var jsonParser = bodyParser.json()
+
 app.use(express.static('public'));
 app.set('view engine', 'ejs')
 
  
-app.get('/', function (req, res) {
-  res.render('index');
-})
 
-app.get('/movies', function (req, res) {
-   
-})
+app.get('/', function(req, res, next) {
+  res.render('index', { title: 'Serveur Lucile' });
+    
+});
 
-router.post('/search', function(req,res,next){
-        search.Search_Movie(req.body.searchmovie,(err, test) => {
-        res.json(test);
-  })
-   
-})
-router.post('/search_with_form', function(req,res,next){
-    var send ={title:'',director:'',genre : '',year:''};
-    if(!req.body.title)
-        {
-            send.title= req.body.title;
-        }
-        search.Search_WithForm(send.title,(err, test) => {
-        res.json(test);
-  })
-   
-})
-
-router.post('/search_with_JSON', function(req,res,next){
-    var send ={title:'',director:'',genre : '',year:''};
-  
-    search.Search_WithJson(req.body.json,(err, test) => {
+app.get('/api/search', jsonParser, function (req, res) {
+    search.Search_Movie(req.body.searchmovie,(err, test) => {
     res.json(test);
-                        
+})
+});
+ 
+app.post('/api/search_with_form',jsonParser, function(req,res,next){
+ 
+    var myObj = {'fields.title':'star war'};
+    
+        search.Search_WithForm(myObj,(err, test) => {
+        res.json(test);
+        })
+})
+
+app.post('/api/search_with_json',jsonParser ,function(req,res,next){
+    console.log(req.body.json);
+    search.Search_WithJSON(req.body.json,(err, test) => {
+    res.json(test);                        
   })  
 })
 

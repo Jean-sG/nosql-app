@@ -47,7 +47,7 @@
 		  <div class="acceuil">
               <div id="form1">
           <div class="panel">
-              <form action="search" class="form-signin" method="get">
+              <form action="api/search" class="form-signin" method="get">
               <div class="panel-header">
                 <input id="searchmovie" class="search-box" type="text" placeholder="Search a movie" required>
                 <label class="search-label" for="search"></label>
@@ -63,10 +63,10 @@
     
 	 <div class="form-row">
 		<div id="form2">
-            <form action="search_with_form" class="form-signin" method="post">
+            <form action="api/search_with_form" class="form-signin" method="post">
 			<div class="form-group col-md-4">
-				<label for="inputTitle">Title</label>
-				 <input class="name" type="text" placeholder="Input a movie title"/>
+				<label for="inputTitle" >Title</label>
+				 <input id="searchtitle" class="name" type="text" placeholder="Input a movie title"/>
 			</div>
 			
 			<div class="form-group col-md-4">
@@ -104,11 +104,13 @@
            <!-- end of FORM 2 div --> 
              <div class="acceuil">
                  <div id="form3">
+                <form action="api/search_with_json" class="form-signin" method="post">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Example textarea</label>
                 <textarea class="form-control" id="json" rows="3"></textarea>
               </div>
               <button type="submit" class="btn btn-secondary btn-lg" id="compute">SEARCH</button>
+                     </form>
              </div>
             </div>
 		  <div id="block2">

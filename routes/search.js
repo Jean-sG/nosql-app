@@ -35,9 +35,8 @@ client.search({
   type: 'movie',
   body: {
         query: {
-            match: {
-            clientReq
-            }
+            match : clientReq
+
         }
     }
 }).then(function (body) {
@@ -50,9 +49,7 @@ client.search({
 client.search({
   index: 'movies',
   type: 'movie',
-  body: {
-       clientReq
-    }
+  body: clientReq
 }).then(function (body) {
   var hits = body.hits.hits;
 }, function (error) {
