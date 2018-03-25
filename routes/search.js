@@ -29,17 +29,14 @@ client.search({
       console.trace(error.message);
     });
   },
-    Search_WithForm: function (clientReq){
+    Search_WithForm: function (jsonreq){
 client.search({
   index: 'movies',
   type: 'movie',
   body: {
         query: {
-            match : clientReq
-
-        }
-    }
-}).then(function (body) {
+           bool : jsonreq
+}}}).then(function (body) {
   var hits = body.hits.hits;
 }, function (error) {
   console.trace(error.message);
